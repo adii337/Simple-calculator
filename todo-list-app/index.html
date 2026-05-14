@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Animated To-Do List App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="animated-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header with Animation -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div>
+                        <h1 class="app-title">TaskFlow</h1>
+                        <p class="app-subtitle">Organize Your Day, Accomplish More</p>
+                    </div>
+                </div>
+                <div class="header-image">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Animated Clipboard -->
+                        <g class="clipboard-group">
+                            <rect x="40" y="20" width="120" height="160" rx="10" fill="#fff" stroke="#667eea" stroke-width="2"/>
+                            <rect x="60" y="30" width="80" height="15" rx="3" fill="#667eea" opacity="0.3"/>
+                            <line x1="60" y1="55" x2="140" y2="55" stroke="#667eea" stroke-width="2" opacity="0.5"/>
+                            <line x1="60" y1="70" x2="140" y2="70" stroke="#667eea" stroke-width="2" opacity="0.5"/>
+                            <line x1="60" y1="85" x2="140" y2="85" stroke="#667eea" stroke-width="2" opacity="0.5"/>
+                            <line x1="60" y1="100" x2="120" y2="100" stroke="#667eea" stroke-width="2" opacity="0.5"/>
+                            <circle cx="155" cy="145" r="25" fill="#51cf66" opacity="0.8"/>
+                            <path d="M 150 145 L 155 150 L 165 140" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-label">Total</span>
+                    <span class="stat-value" id="totalCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Active</span>
+                    <span class="stat-value active" id="activeCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Completed</span>
+                    <span class="stat-value completed" id="completedCount">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        class="task-input" 
+                        placeholder="Add a new task..."
+                        autocomplete="off"
+                    >
+                    <select id="categorySelect" class="category-select">
+                        <option value="general">📌 General</option>
+                        <option value="work">💼 Work</option>
+                        <option value="personal">👤 Personal</option>
+                        <option value="shopping">🛒 Shopping</option>
+                        <option value="health">❤️ Health</option>
+                    </select>
+                    <button class="add-btn" onclick="addTask()">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+                <div class="input-hint">
+                    <i class="fas fa-lightbulb"></i> Press Enter to add tasks quickly
+                </div>
+            </div>
+
+            <!-- Filter Section with Animation -->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <span class="filter-label">Filter by Status:</span>
+                    <button class="filter-btn active" onclick="filterTasks('all')" data-filter="all">
+                        All
+                    </button>
+                    <button class="filter-btn" onclick="filterTasks('active')" data-filter="active">
+                        Active
+                    </button>
+                    <button class="filter-btn" onclick="filterTasks('completed')" data-filter="completed">
+                        Completed
+                    </button>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Filter by Category:</span>
+                    <select id="categoryFilter" class="category-filter" onchange="filterByCategory(this.value)">\n                        <option value="">All Categories</option>
+                        <option value="general">📌 General</option>
+                        <option value="work">💼 Work</option>
+                        <option value="personal">👤 Personal</option>
+                        <option value="shopping">🛒 Shopping</option>
+                        <option value="health">❤️ Health</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tasks List with Empty State -->
+            <div class="tasks-container">
+                <div id="emptyState" class="empty-state">
+                    <svg class="empty-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#e0e0e0" stroke-width="2"/>
+                        <path d="M 70 100 L 90 120 L 130 80" stroke="#e0e0e0" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>No tasks yet. Add one to get started!</p>
+                </div>
+                <ul id="taskList" class="task-list"></ul>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="action-btn clear-completed" onclick="clearCompleted()">
+                    <i class="fas fa-trash-alt"></i> Clear Completed
+                </button>
+                <button class="action-btn clear-all" onclick="clearAll()">
+                    <i class="fas fa-broom"></i> Clear All
+                </button>
+            </div>
+        </main>
+
+        <!-- Motivational Quote Section -->
+        <section class="motivation-section">
+            <div class="quote-card">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p id="motivationalQuote" class="quote-text">You've got this! Start by adding your first task.</p>
+                <button class="quote-btn" onclick="getNewQuote()">
+                    <i class="fas fa-redo"></i> New Quote
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>TaskFlow © 2026 | Stay productive and organized</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
