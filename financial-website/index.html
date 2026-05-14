@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceHub - Financial Consulting & Mutual Funds</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i> FinanceHub
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Menu <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#market-analysis">Market Analysis</a></li>
+                        <li><a href="#services">Services</a></li>
+                    </ul>
+                </li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#help" class="nav-link">Help</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header/Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1>Grow Your Wealth With Expert Guidance</h1>
+            <p>Professional Financial Consulting & Mutual Fund Management Services</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="openCallModal()"><i class="fas fa-phone"></i> Call Now</button>
+                <button class="btn btn-secondary" onclick="openSupportModal()"><i class="fas fa-headset"></i> Support</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Mutual Funds</h3>
+                    <p>Diversified investment options tailored to your financial goals and risk profile.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Portfolio Management</h3>
+                    <p>Expert management of your investment portfolio with regular monitoring and rebalancing.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Financial Planning</h3>
+                    <p>Comprehensive financial planning strategies for retirement, education, and wealth building.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Risk Assessment</h3>
+                    <p>Professional risk analysis and insurance solutions to protect your financial future.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>Investment Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <h3>Equity Funds</h3>
+                    <p>Returns: <strong>12.5%</strong></p>
+                    <p class="small">Growth-oriented investments for long-term wealth creation</p>
+                    <button class="btn btn-small" onclick="openSupportModal()">View Details</button>
+                </div>
+                <div class="portfolio-card">
+                    <h3>Debt Funds</h3>
+                    <p>Returns: <strong>7.2%</strong></p>
+                    <p class="small">Stable returns with lower risk for conservative investors</p>
+                    <button class="btn btn-small" onclick="openSupportModal()">View Details</button>
+                </div>
+                <div class="portfolio-card">
+                    <h3>Hybrid Funds</h3>
+                    <p>Returns: <strong>9.8%</strong></p>
+                    <p class="small">Balanced approach combining equity and debt investments</p>
+                    <button class="btn btn-small" onclick="openSupportModal()">View Details</button>
+                </div>
+                <div class="portfolio-card">
+                    <h3>Gold Funds</h3>
+                    <p>Returns: <strong>8.3%</strong></p>
+                    <p class="small">Safe haven investment for portfolio diversification</p>
+                    <button class="btn btn-small" onclick="openSupportModal()">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Analysis Section -->
+    <section class="market-analysis" id="market-analysis">
+        <div class="container">
+            <h2>Market Analysis</h2>
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <h3><i class="fas fa-arrow-up"></i> Market Trend</h3>
+                    <p class="stat">+5.2%</p>
+                    <p>Positive market sentiment with steady growth indicators</p>
+                    <a href="#" onclick="openSupportModal(); return false;">Read Analysis</a>
+                </div>
+                <div class="analysis-card">
+                    <h3><i class="fas fa-chart-bar"></i> Sector Performance</h3>
+                    <p class="stat">Tech & Finance Leading</p>
+                    <p>Technology and financial sectors showing strong performance this quarter</p>
+                    <a href="#" onclick="openSupportModal(); return false;">Read Analysis</a>
+                </div>
+                <div class="analysis-card">
+                    <h3><i class="fas fa-globe"></i> Global Markets</h3>
+                    <p class="stat">Stable</p>
+                    <p>International markets remain stable with moderate growth expectations</p>
+                    <a href="#" onclick="openSupportModal(); return false;">Read Analysis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Section -->
+    <section class="help" id="help">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is a mutual fund?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A mutual fund is a professionally managed investment fund that pools money from multiple investors to purchase securities like stocks, bonds, and other assets.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I start investing?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Contact our team to schedule a consultation. We'll understand your financial goals and risk profile, then recommend suitable investment options.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is the minimum investment amount?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The minimum investment typically starts from ₹1,000 for mutual funds. We offer flexible investment plans tailored to your budget.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How are returns calculated?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Returns are calculated based on the Net Asset Value (NAV) of the fund. The NAV represents the total market value of the fund's securities divided by the number of units.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+91 1234-567-890</p>
+                            <p>Mon - Fri: 9AM - 6PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@financehub.com</p>
+                            <p>support@financehub.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 Finance Street</p>
+                            <p>New Delhi, India 110001</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="openFeedbackModal()"><i class="fas fa-comment-dots"></i> Send Feedback</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>FinanceHub is a leading financial consulting firm specializing in mutual funds and wealth management.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#market-analysis">Market Analysis</a></li>
+                        <li><a href="#help">Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#" onclick="openTermsModal(); return false;">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FinanceHub. All rights reserved. | Designed with <i class="fas fa-heart"></i> for your financial growth</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Call Modal -->
+    <div id="callModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCallModal()">&times;</span>
+            <h2><i class="fas fa-phone"></i> Call Us Now</h2>
+            <form class="form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Your Phone Number" required>
+                <textarea placeholder="Preferred time to call (e.g., 10AM - 12PM)" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary">Request Call</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div id="supportModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSupportModal()">&times;</span>
+            <h2><i class="fas fa-headset"></i> Customer Support</h2>
+            <div class="support-options">
+                <div class="support-option">
+                    <h3><i class="fas fa-phone"></i> Phone Support</h3>
+                    <p>+91 1234-567-890</p>
+                    <p class="small">Available 24/7</p>
+                </div>
+                <div class="support-option">
+                    <h3><i class="fas fa-envelope"></i> Email Support</h3>
+                    <p>support@financehub.com</p>
+                    <p class="small">Response within 2 hours</p>
+                </div>
+                <div class="support-option">
+                    <h3><i class="fas fa-comments"></i> Live Chat</h3>
+                    <p>Chat with our team</p>
+                    <p class="small">Available 9AM - 9PM</p>
+                </div>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="closeSupportModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeFeedbackModal()">&times;</span>
+            <h2><i class="fas fa-comment-dots"></i> Send Us Your Feedback</h2>
+            <form class="form" onsubmit="submitFeedback(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <select required>
+                    <option value="">Select Feedback Type</option>
+                    <option value="suggestion">Suggestion</option>
+                    <option value="complaint">Complaint</option>
+                    <option value="compliment">Compliment</option>
+                    <option value="other">Other</option>
+                </select>
+                <textarea placeholder="Your Feedback" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTermsModal()">&times;</span>
+            <h2><i class="fas fa-file-contract"></i> Terms & Conditions</h2>
+            <div class="terms-content">
+                <h3>1. General Terms</h3>
+                <p>These terms and conditions govern your use of FinanceHub's website and services. By accessing our services, you agree to be bound by these terms.</p>
+                
+                <h3>2. Investment Disclaimer</h3>
+                <p>All investments carry risk. Past performance is not indicative of future results. Please consult with a financial advisor before making investment decisions.</p>
+                
+                <h3>3. User Responsibilities</h3>
+                <p>Users are responsible for maintaining the confidentiality of their account information and passwords. You agree to accept responsibility for all activities that occur under your account.</p>
+                
+                <h3>4. Limitation of Liability</h3>
+                <p>FinanceHub shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services.</p>
+                
+                <h3>5. Changes to Terms</h3>
+                <p>We reserve the right to modify these terms at any time. Changes will be effective upon posting to the website.</p>
+                
+                <h3>6. Governing Law</h3>
+                <p>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in New Delhi.</p>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="closeTermsModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
